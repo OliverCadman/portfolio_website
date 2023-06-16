@@ -8,28 +8,30 @@ $white: #fff;
 $aqua: #4ee1a0;
 
 // Mobile Font Sizes
-$mob-font-header-xl: 2.5rem;
-$mob-font-header-lg: 2rem;
-$mob-font-body-reg: 1rem;
+$mob-fs-header-xl: 2.5rem;
+$mob-fs-header-lg: 2rem;
+$mob-fs-body-reg: 1rem;
+$mob-fs-nav-header: 1.5rem;
 
 // Mobile Line Heights
-$mob-font-body-lh: 2.6;
+$mob-font-body-lh: 26px;
 
 // Desktop/Tablet Font Sizes
-$dt-font-header-xl: 5.5rem;
-$dt-font-header-lg: 3rem;
-$dt-font-header-md: 1.5rem;
-$dt-font-body-reg: 1.125rem;
+$dt-fs-header-xl: 5.5rem;
+$dt-fs-header-lg: 3rem;
+$dt-fs-header-md: 1.5rem;
+$dt-fs-body-reg: 1.125rem;
+$dt-fs-nav-header: 2rem;
 
 // Desktop/Tablet Line Heights
-$dt-header-xl-lh: 8.8;
-$dt-header-lg-lh: 5.6;
-$dt-header-md-lh: 3.2;
-$dt-font-body-lh: 2.8;
+$dt-header-xl-lh: 88px;
+$dt-header-lg-lh: 56px;
+$dt-header-md-lh: 32px;
+$dt-font-body-lh: 28px;
 
 // Transitions
 $base-transition: all 0.3s ease;
 
 // Padding
-$base-padding: 1rem;
+$base-padding: 1.25rem;
 $base-margin: 1rem;

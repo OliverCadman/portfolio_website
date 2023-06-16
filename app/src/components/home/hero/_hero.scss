@@ -1,0 +1,39 @@
+.main__hero {
+  .main__hero-grid {
+    // display: grid;
+    // grid-template-columns: repeat(8, 1fr);
+
+    h2 {
+      font-size: $mob-fs-header-xl;
+      line-height: $mob-font-body-lh;
+
+      .underlined {
+        text-decoration: underline;
+        text-decoration-color: $aqua;
+        text-underline-offset: 1rem;
+      }
+
+      @include tablet() {
+        font-size: $dt-fs-header-xl;
+        line-height: $dt-header-xl-lh;
+        width: 75%;
+        position: relative;
+        z-index: 2;
+      }
+    }
+
+    .main__hero-content {
+      grid-column: 1 / 5;
+      grid-row: 1/2;
+    }
+
+    .image-wrapper {
+      img {
+        width: 32%;
+        position: absolute;
+        top: 0;
+        right: 80px;
+      }
+    }
+  }
+}

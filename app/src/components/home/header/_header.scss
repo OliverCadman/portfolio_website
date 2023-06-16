@@ -1,0 +1,10 @@
+.header {
+  position: absolute;
+  h1 {
+    font-size: $mob-fs-nav-header;
+
+    @include tablet() {
+      font-size: $dt-fs-nav-header;
+    }
+  }
+}
