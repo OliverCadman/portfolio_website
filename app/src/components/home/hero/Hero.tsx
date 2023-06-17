@@ -22,6 +22,15 @@ const Hero = () => {
             Nice to meet you! I'm{" "}
             <span className="underlined">Oli Cadman.</span>
           </h2>
+          <p>
+            Based in London UK, I'm a Full Stack Developer, passionate about
+            building accessible web apps and data transformation pipelines.
+          </p>
+          <p>
+            Currently working as a Software Engineer Consultant with Xander
+            Talent, where I am involved in a number of projects leveraging
+            Langchain with Python, and Spark with Scala.
+          </p>
         </article>
       </div>
     </section>

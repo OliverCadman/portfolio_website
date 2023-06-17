@@ -35,15 +35,17 @@
     @include desktop() {
       top: 0;
       width: 75%;
-      transform: translateY(100%);
+      transform: translateY(50%);
     }
 
     h2 {
       font-size: $mob-fs-header-xl;
+      text-align: center;
 
       @include tablet() {
         font-size: $dt-fs-header-xl;
         line-height: $dt-header-xl-lh;
+        text-align: left;
       }
     }
 
@@ -51,6 +53,31 @@
       text-decoration: underline;
       text-decoration-color: $aqua;
       text-underline-offset: 25px;
+    }
+
+    p {
+      text-align: center;
+      font-size: $mob-fs-body-reg;
+      line-height: $mob-font-body-lh;
+
+      @include tablet() {
+        text-align: left;
+        width: 65%;
+        font-size: $dt-fs-body-reg;
+        line-height: $dt-font-body-lh;
+      }
+    }
+
+    p:first-of-type {
+      margin-top: 1.1875rem;
+
+      @include tablet() {
+        margin-top: 2.5rem;
+      }
+    }
+
+    p:last-of-type {
+      margin-top: 1.1875rem;
     }
   }
 }

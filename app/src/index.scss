@@ -41,6 +41,10 @@ h6 {
   color: $white;
 }
 
+p {
+  color: $grey;
+}
+
 // SCSS Imports
 @import "./components/home/header/header";
 @import "./components/home/hero/hero";
