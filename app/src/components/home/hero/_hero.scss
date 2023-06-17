@@ -1,39 +1,56 @@
-.main__hero {
-  .main__hero-grid {
-    // display: grid;
-    // grid-template-columns: repeat(8, 1fr);
+.hero__content {
+  display: flex;
+  flex-direction: column;
+
+  @include desktop() {
+    width: 100%;
+    max-width: 1110px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero__avatar-container {
+    width: 35%;
+    margin: 0 auto;
+
+    @include tablet() {
+      margin-right: unset;
+    }
+  }
+
+  .hero__img {
+    width: 100%;
+  }
+
+  .hero__callout {
+    @include tablet() {
+      position: absolute;
+      text-align: left;
+      top: 25%;
+      left: 32px;
+      width: 75%;
+      margin: 0;
+    }
+
+    @include desktop() {
+      top: 0;
+      width: 75%;
+      transform: translateY(100%);
+    }
 
     h2 {
       font-size: $mob-fs-header-xl;
-      line-height: $mob-font-body-lh;
-
-      .underlined {
-        text-decoration: underline;
-        text-decoration-color: $aqua;
-        text-underline-offset: 1rem;
-      }
 
       @include tablet() {
         font-size: $dt-fs-header-xl;
         line-height: $dt-header-xl-lh;
-        width: 75%;
-        position: relative;
-        z-index: 2;
       }
     }
 
-    .main__hero-content {
-      grid-column: 1 / 5;
-      grid-row: 1/2;
-    }
-
-    .image-wrapper {
-      img {
-        width: 32%;
-        position: absolute;
-        top: 0;
-        right: 80px;
-      }
+    .underlined {
+      text-decoration: underline;
+      text-decoration-color: $aqua;
+      text-underline-offset: 25px;
     }
   }
 }

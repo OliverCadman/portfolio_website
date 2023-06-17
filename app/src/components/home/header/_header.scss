@@ -1,10 +1,52 @@
 .header {
-  position: absolute;
+  @include tablet() {
+    width: 100%;
+    padding: 1.125rem 2rem;
+  }
+
+  @include desktop() {
+    max-width: 1110px;
+    margin: 0 auto;
+  }
+
+  .header__list {
+    display: flex;
+    list-style-type: none;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header__list li:first-child {
+    flex-basis: 100%;
+    text-align: center;
+
+    @include tablet() {
+      flex-basis: auto;
+      text-align: left;
+      margin-right: auto;
+    }
+  }
+
+  .header__list-icon {
+    margin: 0 1rem;
+  }
+
   h1 {
     font-size: $mob-fs-nav-header;
 
     @include tablet() {
       font-size: $dt-fs-nav-header;
     }
+  }
+}
+
+.header--positioned {
+  @include tablet() {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
   }
 }

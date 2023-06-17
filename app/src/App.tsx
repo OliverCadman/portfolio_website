@@ -4,14 +4,12 @@ import Hero from "./components/home/hero/Hero";
 
 function App() {
   return (
-    <div className="main__container p-1 pl-md-8 pr-md-8">
-      <header className="header">
+    <main>
+      <section className="section hero">
         <Header />
-      </header>
-      <main className="main">
         <Hero />
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }
 

@@ -1,22 +1,30 @@
-import profileImage from "../../../assets/images/image-profile-desktop.webp";
+import heroAvatarDesktop from "../../../assets/images/image-profile-desktop.webp";
+import heroAvatarTablet from "../../../assets/images/image-profile-tablet.webp";
+import heroAvatarMobile from "../../../assets/images/image-profile-mobile.webp";
 
 const Hero = () => {
   return (
-    <div className="main__hero mt-4">
-      <div className="main__hero-grid">
-        <div className="main__hero-content">
-          <article>
-            <h2>
-              Nice to meet you! I'm{" "}
-              <span className="underlined">Oliver Cadman.</span>
-            </h2>
-          </article>
-        </div>
-        <div className="image-wrapper">
-          <img src={profileImage} alt="Profile Picture of Website Owner." />
-        </div>
+    <section className="hero__content">
+      <div className="hero__avatar-container">
+        <picture className="hero__img">
+          <source media="(min-width: 768px)" srcSet={heroAvatarTablet} />
+          <source media="(min-width: 1220px)" srcSet={heroAvatarDesktop} />
+          <img
+            src={heroAvatarMobile}
+            alt="Avatar of website owner."
+            className="hero__img"
+          />
+        </picture>
       </div>
-    </div>
+      <div className="hero__callout">
+        <article>
+          <h2>
+            Nice to meet you! I'm{" "}
+            <span className="underlined">Oli Cadman.</span>
+          </h2>
+        </article>
+      </div>
+    </section>
   );
 };
 
