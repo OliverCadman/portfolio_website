@@ -1,5 +1,5 @@
 .header {
-  .header__list {
+  .link__list {
     display: flex;
     list-style-type: none;
     flex-flow: row wrap;
@@ -7,7 +7,7 @@
     align-items: center;
   }
 
-  .header__list li:first-child {
+  .link__list li:first-child {
     flex-basis: 100%;
     text-align: center;
 
@@ -18,7 +18,7 @@
     }
   }
 
-  .header__list-icon {
+  .link__list-icon {
     margin: 0 1rem;
   }
 

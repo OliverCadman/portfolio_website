@@ -1,0 +1,112 @@
+.footer {
+  background-color: $dark-grey;
+  padding: 3rem 0;
+
+  .contact-section__container {
+    width: 100%;
+    padding: 0 1rem;
+
+    @include tablet() {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    @include desktop() {
+      max-width: 1110px;
+      gap: 5rem;
+    }
+  }
+
+  .contact-section__wrapper {
+    @include desktop() {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .contact-section__content {
+      h2 {
+        font-size: $mob-fs-header-md;
+
+        @include tablet() {
+          font-size: $dt-fs-header-lg;
+        }
+      }
+
+      p {
+        margin-top: 2.5rem;
+      }
+    }
+
+    .contact-section__content,
+    .contact-section__form {
+      @include desktop() {
+        flex-basis: 37%;
+      }
+    }
+  }
+
+  .contact-section__form {
+    form {
+      width: 100%;
+      input,
+      textarea {
+        width: 100%;
+        background: transparent;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #979797;
+        resize: none;
+        padding: 1.1875rem 0;
+        color: $white;
+        font-family: "Space Grotesk", system-ui, -apple-system,
+          BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+          "Open Sans", "Helvetica Neue", sans-serif;
+      }
+    }
+
+    input,
+    textarea {
+      @include desktop() {
+        font-size: $dt-fs-body-reg;
+      }
+    }
+  }
+
+  .sr-only {
+    visibility: hidden;
+  }
+
+  .form-submit {
+    margin-top: 1.1875rem;
+    text-align: right;
+  }
+
+  .submit-btn {
+    background: transparent;
+    border: none;
+    border-spacing: 3px;
+    color: $white;
+    font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+      "Helvetica Neue", sans-serif;
+    letter-spacing: 2.26px;
+    line-height: 26px;
+    text-transform: uppercase;
+    font-size: 1.1875rem;
+    text-decoration: underline;
+    text-decoration-color: $aqua;
+    text-decoration-thickness: 4px;
+
+    @include desktop() {
+      transition: color 0.2s ease;
+      &:hover {
+        color: $aqua;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .footer-links {
+    margin-top: 3rem;
+  }
+}

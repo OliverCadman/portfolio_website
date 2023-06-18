@@ -3,25 +3,28 @@ import { ReactComponent as LinkedInIcon } from "../../../assets/images/icon-link
 import { ReactComponent as GithubIcon } from "../../../assets/images/icon-github.svg";
 import { ReactComponent as TwitterIcon } from "../../../assets/images/icon-twitter.svg";
 
-function Header() {
+const Links: React.FC<{ classOne: string; classTwo: string }> = ({
+  classOne,
+  classTwo,
+}) => {
   return (
-    <header className="section header header--positioned">
-      <ul className="header__list">
+    <header className={`section ${classOne}  ${classTwo}`}>
+      <ul className="link__list">
         <li>
           <h1>olivercadman</h1>
         </li>
-        <li className="header__list-icon">
+        <li className="link__list-icon">
           <GithubIcon />
         </li>
-        <li className="header__list-icon">
+        <li className="link__list-icon">
           <LinkedInIcon />
         </li>
-        <li className="header__list-icon">
+        <li className="link__list-icon">
           <TwitterIcon />
         </li>
       </ul>
     </header>
   );
-}
+};
 
-export default Header;
+export default Links;

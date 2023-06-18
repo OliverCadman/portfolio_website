@@ -43,6 +43,7 @@ h6 {
 
 p {
   color: $grey;
+  line-height: 28px;
 }
 
 ul {
@@ -72,12 +73,35 @@ hr {
   @include desktop() {
     max-width: 1110px;
     margin: 0 auto;
-    // padding: unset;
   }
 }
 
+.link__list {
+  display: flex;
+  list-style-type: none;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.link__list li:first-child {
+  flex-basis: 100%;
+  text-align: center;
+
+  @include tablet() {
+    flex-basis: auto;
+    text-align: left;
+    margin-right: auto;
+  }
+}
+
+.link__list-icon {
+  margin: 0 1rem;
+}
+
 // SCSS Imports
-@import "./components/home/header/header";
+@import "./components/home/links/links";
 @import "./components/home/hero/hero";
 @import "./components/home/skills/skill_list";
 @import "./components/home/projects/project_list";
+@import "./components/home/footer/footer";

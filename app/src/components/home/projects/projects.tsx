@@ -40,14 +40,14 @@ const projects: Project[] = [
   },
   {
     title: "Memory Game",
-    thumbnail_lg: ThumbnailP1Lg,
-    thumbnail_sm: ThumbnailP1Small,
+    thumbnail_lg: ThumbnailP5Lg,
+    thumbnail_sm: ThumbnailP5Small,
     technologies: ["HTML", "CSS", "JavaScript"],
   },
   {
     title: "Art Gallery Showcase",
-    thumbnail_lg: ThumbnailP1Lg,
-    thumbnail_sm: ThumbnailP1Small,
+    thumbnail_lg: ThumbnailP6Lg,
+    thumbnail_sm: ThumbnailP6Small,
     technologies: ["HTML", "CSS", "JavaScript"],
   },
 ];
