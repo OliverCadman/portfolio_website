@@ -45,6 +45,16 @@ p {
   color: $grey;
 }
 
+ul {
+  list-style-type: none;
+}
+
+.offset-colored-underline {
+  text-decoration-color: $aqua;
+  text-underline-offset: 10px;
+  text-decoration-thickness: 4px;
+}
+
 hr {
   opacity: 1;
   border-color: $grey;
@@ -53,6 +63,7 @@ hr {
 
 .section {
   width: 100%;
+  padding: 0 1rem;
 
   @include tablet() {
     padding: 0 2rem 1.125rem 2rem;
@@ -69,4 +80,4 @@ hr {
 @import "./components/home/header/header";
 @import "./components/home/hero/hero";
 @import "./components/home/skills/skill_list";
-@import "./components/home/skills/skill";
+@import "./components/home/projects/project_list";

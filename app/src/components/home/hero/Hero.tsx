@@ -27,7 +27,9 @@ const Hero = () => {
             building accessible web apps and data transformation pipelines.
           </p>
           <div className="hero__contact">
-            <a href="#">Contact Me</a>
+            <a href="#" className="offset-colored-underline">
+              Contact Me
+            </a>
           </div>
         </article>
       </div>

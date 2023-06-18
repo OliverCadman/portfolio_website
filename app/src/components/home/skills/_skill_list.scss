@@ -1,10 +1,16 @@
 .skills__container {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.skills__list {
   display: grid;
   grid-template-columns: 1fr;
   column-gap: 2rem;
-  row-gap: 2.875rem;
+
+  li {
+    margin: 1rem 0;
+  }
 
   text-align: center;
 
@@ -15,5 +21,15 @@
 
   @include desktop() {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.skills__item {
+  h2 {
+    font-size: $mob-fs-header-lg;
+
+    @include tablet() {
+      font-size: $dt-fs-header-lg;
+    }
   }
 }

@@ -9,7 +9,7 @@ const SkillsList = () => {
       length_of_experience: "2.5 Years Experience",
     },
     {
-      name: "CSS",
+      name: "CSS/SASS",
       length_of_experience: "2.5 Years Experience",
     },
     {
@@ -32,16 +32,17 @@ const SkillsList = () => {
 
   return (
     <section className="section skills__container">
-      {skills.map((skill, idx) => {
-        const { name, length_of_experience } = skill;
-        return (
-          <Skill
-            key={idx}
-            name={name}
-            length_of_experience={length_of_experience}
-          />
-        );
-      })}
+      <ul className="skills__list">
+        {skills.map((skill, idx) => {
+          const { name, length_of_experience } = skill;
+          return (
+            <li key={idx}>
+              <Skill name={name} length_of_experience={length_of_experience} />
+            </li>
+          );
+        })}
+      </ul>
+      <hr />
     </section>
   );
 };

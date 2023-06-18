@@ -1,9 +1,0 @@
-.skills__item {
-  h2 {
-    font-size: $mob-fs-header-lg;
-
-    @include tablet() {
-      font-size: $dt-fs-header-lg;
-    }
-  }
-}
