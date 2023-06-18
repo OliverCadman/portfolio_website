@@ -3,9 +3,6 @@
   flex-direction: column;
 
   @include desktop() {
-    width: 100%;
-    max-width: 1110px;
-    margin: 0 auto;
     position: relative;
   }
 
@@ -23,10 +20,12 @@
   }
 
   .hero__callout {
+    display: flow-root;
     @include tablet() {
       position: absolute;
       text-align: left;
-      top: 25%;
+      top: 0;
+      transform: translateY(25%);
       left: 32px;
       width: 75%;
       margin: 0;
@@ -35,7 +34,7 @@
     @include desktop() {
       top: 0;
       width: 75%;
-      transform: translateY(50%);
+      transform: translateY(40%);
     }
 
     h2 {
@@ -43,9 +42,13 @@
       text-align: center;
 
       @include tablet() {
-        font-size: $dt-fs-header-xl;
+        font-size: 4rem;
         line-height: $dt-header-xl-lh;
         text-align: left;
+      }
+
+      @include desktop() {
+        font-size: $dt-fs-header-xl;
       }
     }
 
@@ -56,9 +59,12 @@
     }
 
     p {
+      display: flow-root;
       text-align: center;
       font-size: $mob-fs-body-reg;
       line-height: $mob-font-body-lh;
+      margin-top: 3rem;
+      margin-bottom: 2rem;
 
       @include tablet() {
         text-align: left;
@@ -68,16 +74,21 @@
       }
     }
 
-    p:first-of-type {
-      margin-top: 1.1875rem;
+    .hero__contact {
+      font-size: $mob-fs-body-reg;
+      line-height: 26px;
+      display: inline-block;
+      border-bottom: 2px solid $aqua;
+      text-transform: uppercase;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      letter-spacing: 2.3px;
 
-      @include tablet() {
-        margin-top: 2.5rem;
+      a {
+        color: $white;
+        text-decoration: none;
       }
-    }
-
-    p:last-of-type {
-      margin-top: 1.1875rem;
     }
   }
 }

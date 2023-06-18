@@ -4,7 +4,7 @@ import heroAvatarMobile from "../../../assets/images/image-profile-mobile.webp";
 
 const Hero = () => {
   return (
-    <section className="hero__content">
+    <section className="section hero__content">
       <div className="hero__avatar-container">
         <picture className="hero__img">
           <source media="(min-width: 768px)" srcSet={heroAvatarTablet} />
@@ -26,13 +26,12 @@ const Hero = () => {
             Based in London UK, I'm a Full Stack Developer, passionate about
             building accessible web apps and data transformation pipelines.
           </p>
-          <p>
-            Currently working as a Software Engineer Consultant with Xander
-            Talent, where I am involved in a number of projects leveraging
-            Langchain with Python, and Spark with Scala.
-          </p>
+          <div className="hero__contact">
+            <a href="#">Contact Me</a>
+          </div>
         </article>
       </div>
+      <hr />
     </section>
   );
 };

@@ -1,0 +1,19 @@
+.skills__container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 2rem;
+  row-gap: 2.875rem;
+
+  text-align: center;
+
+  @include tablet() {
+    text-align: left;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include desktop() {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

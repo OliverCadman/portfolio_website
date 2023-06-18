@@ -27,7 +27,7 @@
 }
 
 // Global Page styles
-.hero {
+.main {
   background-color: $black;
   position: relative;
 }
@@ -45,6 +45,28 @@ p {
   color: $grey;
 }
 
+hr {
+  opacity: 1;
+  border-color: $grey;
+  margin-top: 4rem;
+}
+
+.section {
+  width: 100%;
+
+  @include tablet() {
+    padding: 0 2rem 1.125rem 2rem;
+  }
+
+  @include desktop() {
+    max-width: 1110px;
+    margin: 0 auto;
+    // padding: unset;
+  }
+}
+
 // SCSS Imports
 @import "./components/home/header/header";
 @import "./components/home/hero/hero";
+@import "./components/home/skills/skill_list";
+@import "./components/home/skills/skill";

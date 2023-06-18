@@ -1,14 +1,4 @@
 .header {
-  @include tablet() {
-    width: 100%;
-    padding: 1.125rem 2rem;
-  }
-
-  @include desktop() {
-    max-width: 1110px;
-    margin: 0 auto;
-  }
-
   .header__list {
     display: flex;
     list-style-type: none;

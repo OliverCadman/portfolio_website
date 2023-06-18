@@ -5,7 +5,7 @@ import { ReactComponent as TwitterIcon } from "../../../assets/images/icon-twitt
 
 function Header() {
   return (
-    <header className="header header--positioned">
+    <header className="section header header--positioned">
       <ul className="header__list">
         <li>
           <h1>olivercadman</h1>
