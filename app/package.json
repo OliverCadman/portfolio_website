@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "env-cmd -f ../.env.production vite",
-    "build": "env-cmd -f ../.env.production tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
