@@ -18,6 +18,12 @@
   line-height: 1.5;
 }
 
+html,
+body {
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
 *,
 :before,
 :after {
@@ -29,7 +35,6 @@
 // Global Page styles
 .main {
   background-color: $black;
-  position: relative;
 }
 
 h1,
@@ -62,14 +67,16 @@ hr {
   margin-top: 4rem;
 }
 
-.section {
+.section:not(.hero-section) {
   width: 100%;
   padding: 0 1rem;
 
   @include tablet() {
     padding: 0 2rem 1.125rem 2rem;
   }
+}
 
+.section {
   @include desktop() {
     max-width: 1110px;
     margin: 0 auto;

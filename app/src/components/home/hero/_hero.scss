@@ -9,6 +9,7 @@
   .hero__avatar-container {
     width: 50%;
     margin: 0 auto;
+    position: relative;
 
     @include tablet() {
       margin-right: unset;
@@ -18,6 +19,8 @@
 
   .hero__img {
     width: 100%;
+    position: relative;
+    z-index: 3;
   }
 
   .hero__callout {
@@ -30,6 +33,7 @@
       left: 32px;
       width: 75%;
       margin: 0;
+      z-index: 10;
     }
 
     @include desktop() {
@@ -101,5 +105,40 @@
         }
       }
     }
+  }
+}
+
+.hero-rings,
+.hero-circle {
+  position: absolute;
+  overflow: hidden;
+}
+
+.hero-rings {
+  left: 0;
+  top: 0;
+  transform: translate(-65%, 100%);
+
+  @include tablet() {
+    transform: translate(-50%, 50%);
+  }
+
+  @include desktop() {
+    transform: translate(-30%, 100%);
+  }
+}
+
+.hero-circle {
+  z-index: 5;
+  top: 0;
+  right: 0;
+  transform: translate(130%, 185%);
+
+  @include tablet() {
+    transform: translate(50%, 275%);
+  }
+
+  @include desktop() {
+    transform: translate(-250%, 400%);
   }
 }
