@@ -9,7 +9,9 @@ function App() {
   return (
     <>
       <main className="main">
-        <Header classOne="header" classTwo="header--positioned" />
+        <header>
+          <Header classOne="header" classTwo="header--positioned" />
+        </header>
         <Hero />
         <SkillsList />
         <ProjectList />

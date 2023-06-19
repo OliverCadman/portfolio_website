@@ -11,20 +11,20 @@ const Links: React.FC<{ classOne: string; classTwo: string }> = ({
     <div className={`section ${classOne}  ${classTwo}`}>
       <ul className="link__list">
         <li>
-          <h1>olivercadman</h1>
+          <h1>adamkeyes</h1>
         </li>
         <li className="link__list-icon">
-          <a href="#">
+          <a href="#" aria-label="Github Link">
             <GithubIcon />
           </a>
         </li>
         <li className="link__list-icon">
-          <a href="#">
+          <a href="#" aria-label="LinkedIn Link">
             <LinkedInIcon />
           </a>
         </li>
         <li className="link__list-icon">
-          <a href="#">
+          <a href="#" aria-label="Twitter Link">
             <TwitterIcon />
           </a>
         </li>

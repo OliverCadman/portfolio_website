@@ -26,7 +26,7 @@ const Hero = () => {
             <article>
               <h2>
                 Nice to meet you! I'm{" "}
-                <span className="underlined">Oli Cadman.</span>
+                <span className="underlined">Adam Keyes.</span>
               </h2>
               <p>
                 Based in London UK, I'm a Full Stack Developer, passionate about
