@@ -1,35 +1,148 @@
-import React, { BaseSyntheticEvent, useRef } from "react";
+import React, { BaseSyntheticEvent, useRef, useState } from "react";
 import Links from "../links/Links";
 import emailjs from "@emailjs/browser";
+import Error from "./Error";
+
+type UserContactDetails = {
+  name: {
+    isValid: boolean;
+    name: string;
+    error_msg: string;
+  };
+  email: {
+    isValid: boolean;
+    email: string;
+    error_msg: string;
+  };
+  message: {
+    isValid: boolean;
+    message: string;
+    error_msg: string;
+  };
+};
 
 const Footer = () => {
   const formRef = useRef<HTMLFormElement>(null);
+  const [formData, setFormData] = useState<UserContactDetails>({
+    name: {
+      isValid: true,
+      name: "",
+      error_msg: "",
+    },
+    email: {
+      isValid: true,
+      email: "",
+      error_msg: "",
+    },
+    message: {
+      isValid: true,
+      message: "",
+      error_msg: "",
+    },
+  });
+
+  const handleChange = (e: any) => {
+    const val = e.target.value;
+    const input = e.target.id;
+
+    if (input === "name") {
+      setFormData((prevData) => {
+        return {
+          ...prevData,
+          name: {
+            isValid: true,
+            name: val,
+            error_msg: "",
+          },
+        };
+      });
+    } else if (input === "email") {
+      setFormData((prevData) => {
+        const emailValid = val.indexOf("@") !== -1;
+        return {
+          ...prevData,
+          email: {
+            isValid: emailValid ? true : false,
+            email: val,
+            error_msg:
+              prevData.email.isValid && emailValid
+                ? "Sorry, invalid format here."
+                : "",
+          },
+        };
+      });
+    } else {
+      setFormData((prevData) => {
+        return {
+          ...prevData,
+          message: {
+            isValid: true,
+            message: val,
+            error_msg: "",
+          },
+        };
+      });
+    }
+  };
 
   const handleSubmit = (e: BaseSyntheticEvent) => {
     e.preventDefault();
-    const formData = e.target;
-    const name = formData.name.value;
-    const email = formData.email.value;
-    const message = formData.message.value;
+
+    const name = formData.name.name;
+    const email = formData.email.email;
+    const message = formData.message.message;
 
     if (!name) {
-      console.log("Name invalid.");
+      console.log("hello");
+      setFormData({
+        ...formData,
+        name: {
+          ...formData.name,
+          isValid: false,
+          error_msg: "Please enter your name.",
+        },
+      });
+      return;
     }
 
     if (!email || email.indexOf("@") === -1) {
-      console.log("Email invalid");
+      console.log("hello!");
+      setFormData({
+        ...formData,
+        email: {
+          ...formData.email,
+          isValid: false,
+          error_msg: "Sorry, invalid format here.",
+        },
+      });
+      return;
     }
 
     if (!message) {
-      console.log("message invalid");
+      console.log("hello!!");
+      setFormData({
+        ...formData,
+        message: {
+          ...formData.message,
+          isValid: false,
+          error_msg: "Please enter a message.",
+        },
+      });
+      return;
     }
 
     const serviceID = process.env.EMAILJS_SERVICE_ID;
     const templateID = process.env.EMAILJS_TEMPLATE_ID;
     const publicKey = process.env.EMAILJS_PUBLIC_KEY;
 
+    const templateVars = {
+      name: formData.name.name,
+      email: formData.email.email,
+      message: formData.message.message,
+    };
+
     emailjs
-      .sendForm(serviceID, templateID, formRef.current, publicKey)
+      .send(serviceID, templateID, templateVars, publicKey)
       .then((result) => {
         console.log(result);
       })
@@ -60,7 +173,14 @@ const Footer = () => {
                 id="name"
                 placeholder="NAME"
                 formNoValidate={true}
+                value={formData?.name.name}
+                onChange={handleChange}
               />
+              {!formData?.name?.isValid ? (
+                <Error message={formData.name.error_msg} />
+              ) : (
+                ""
+              )}
             </div>
             <div className="form-group">
               <label htmlFor="email" className="sr-only">
@@ -72,7 +192,14 @@ const Footer = () => {
                 id="email"
                 placeholder="EMAIL"
                 formNoValidate={true}
+                value={formData?.email.email}
+                onChange={handleChange}
               />
+              {!formData?.email?.isValid ? (
+                <Error message={formData.email.error_msg} />
+              ) : (
+                ""
+              )}
             </div>
             <div className="form-group">
               <label htmlFor="message" className="sr-only">
@@ -83,12 +210,20 @@ const Footer = () => {
                 id="message"
                 rows={6}
                 placeholder="MESSAGE"
+                value={formData?.message.message}
+                onChange={handleChange}
               ></textarea>
+              {!formData?.message?.isValid ? (
+                <Error message={formData.message.error_msg} />
+              ) : (
+                ""
+              )}
             </div>
             <div className="form-submit">
               <button
                 type="submit"
                 className="submit-btn offset-colored-underline"
+                formNoValidate={true}
               >
                 Send Message
               </button>
