@@ -1,4 +1,4 @@
-import React, { BaseSyntheticEvent, useRef, useState } from "react";
+import { BaseSyntheticEvent, useRef, useState } from "react";
 import Links from "../links/Links";
 import emailjs from "@emailjs/browser";
 import Error from "./Error";
@@ -6,6 +6,8 @@ import Spinner from "./Spinner";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+import { ReactComponent as PatternRings } from "../../../assets/images/pattern-rings.svg";
 
 type UserContactDetails = {
   name: {
@@ -297,10 +299,13 @@ const Footer = () => {
             </form>
           </div>
         </div>
+      </div>
+      <div className="footer-links">
         <hr />
         <Links classOne="footer-links" classTwo="footer--positioned" />
       </div>
       <ToastContainer />
+      <PatternRings className="footer-rings" />
     </>
   );
 };

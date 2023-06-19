@@ -1,6 +1,6 @@
-import React from "react";
 import { SkillInterface } from "./types";
 import Skill from "./Skill";
+import { ReactComponent as PatternRings } from "../../../assets/images/pattern-rings.svg";
 
 const SkillsList = () => {
   const skills: SkillInterface[] = [
@@ -31,18 +31,23 @@ const SkillsList = () => {
   ];
 
   return (
-    <section className="section skills__container">
-      <ul className="skills__list">
-        {skills.map((skill, idx) => {
-          const { name, length_of_experience } = skill;
-          return (
-            <li key={idx}>
-              <Skill name={name} length_of_experience={length_of_experience} />
-            </li>
-          );
-        })}
-      </ul>
-      <hr />
+    <section className="section">
+      <PatternRings className="skills__rings" />
+      <div className="skills__container">
+        <ul className="skills__list">
+          {skills.map((skill, idx) => {
+            const { name, length_of_experience } = skill;
+            return (
+              <li key={idx}>
+                <Skill
+                  name={name}
+                  length_of_experience={length_of_experience}
+                />
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </section>
   );
 };

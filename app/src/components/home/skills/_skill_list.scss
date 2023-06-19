@@ -1,6 +1,18 @@
 .skills__container {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+
+  width: 100%;
+  padding: 0 1rem;
+
+  @include tablet() {
+    padding: 0 2rem 1.125rem 2rem;
+  }
+
+  @include desktop() {
+    max-width: 1110px;
+    margin: 0 auto;
+  }
 }
 
 .skills__list {
@@ -31,5 +43,20 @@
     @include tablet() {
       font-size: $dt-fs-header-lg;
     }
+  }
+}
+
+.skills__rings {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translate(75%, 85%);
+
+  @include tablet() {
+    transform: translate(50%, 85%);
+  }
+
+  @include desktop() {
+    transform: translate(45%, 50%);
   }
 }

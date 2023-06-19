@@ -8,7 +8,7 @@ const Links: React.FC<{ classOne: string; classTwo: string }> = ({
   classTwo,
 }) => {
   return (
-    <header className={`section ${classOne}  ${classTwo}`}>
+    <div className={`section ${classOne}  ${classTwo}`}>
       <ul className="link__list">
         <li>
           <h1>olivercadman</h1>
@@ -23,7 +23,7 @@ const Links: React.FC<{ classOne: string; classTwo: string }> = ({
           <TwitterIcon />
         </li>
       </ul>
-    </header>
+    </div>
   );
 };
 

@@ -67,20 +67,9 @@ hr {
   margin-top: 4rem;
 }
 
-.section:not(.hero-section) {
-  width: 100%;
-  padding: 0 1rem;
-
-  @include tablet() {
-    padding: 0 2rem 1.125rem 2rem;
-  }
-}
-
-.section {
-  @include desktop() {
-    max-width: 1110px;
-    margin: 0 auto;
-  }
+.section,
+.footer {
+  position: relative;
 }
 
 .link__list {

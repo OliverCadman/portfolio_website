@@ -6,41 +6,43 @@ import { ReactComponent as PatternCircle } from "../../../assets/images/pattern-
 
 const Hero = () => {
   return (
-    <section className="section hero-section">
-      <div className="hero__content">
-        <div className="hero__avatar-container">
-          <PatternCircle className="hero-circle" />
-          <picture className="hero__img">
-            <source media="(min-width: 768px)" srcSet={heroAvatarTablet} />
-            <source media="(min-width: 1220px)" srcSet={heroAvatarDesktop} />
-            <img
-              src={heroAvatarMobile}
-              alt="Avatar of website owner."
-              className="hero__img"
-            />
-          </picture>
+    <>
+      <section className="section hero__container">
+        <div className="hero__content">
+          <div className="hero__avatar-container">
+            <PatternCircle className="hero-circle" />
+            <picture className="hero__img">
+              <source media="(min-width: 768px)" srcSet={heroAvatarTablet} />
+              <source media="(min-width: 1220px)" srcSet={heroAvatarDesktop} />
+              <img
+                src={heroAvatarMobile}
+                alt="Avatar of website owner."
+                className="hero__img"
+              />
+            </picture>
+          </div>
+          <div className="hero__callout">
+            <article>
+              <h2>
+                Nice to meet you! I'm{" "}
+                <span className="underlined">Oli Cadman.</span>
+              </h2>
+              <p>
+                Based in London UK, I'm a Full Stack Developer, passionate about
+                building accessible web apps and data transformation pipelines.
+              </p>
+              <div className="hero__contact">
+                <a href="#" className="offset-colored-underline">
+                  Contact Me
+                </a>
+              </div>
+            </article>
+          </div>
+          <hr />
         </div>
-        <div className="hero__callout">
-          <article>
-            <h2>
-              Nice to meet you! I'm{" "}
-              <span className="underlined">Oli Cadman.</span>
-            </h2>
-            <p>
-              Based in London UK, I'm a Full Stack Developer, passionate about
-              building accessible web apps and data transformation pipelines.
-            </p>
-            <div className="hero__contact">
-              <a href="#" className="offset-colored-underline">
-                Contact Me
-              </a>
-            </div>
-          </article>
-        </div>
-        <hr />
-      </div>
+      </section>
       <PatternRings className="hero-rings" />
-    </section>
+    </>
   );
 };
 
