@@ -141,9 +141,9 @@ const Footer = () => {
       return;
     }
 
-    const serviceID = process.env.EMAILJS_SERVICE_ID;
-    const templateID = process.env.EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.EMAILJS_PUBLIC_KEY;
+    const serviceID = process.env.EMAILJS_SERVICE_ID || "";
+    const templateID = process.env.EMAILJS_TEMPLATE_ID || "";
+    const publicKey = process.env.EMAILJS_PUBLIC_KEY || "";
 
     const templateVars = {
       name: formData.name.name,
