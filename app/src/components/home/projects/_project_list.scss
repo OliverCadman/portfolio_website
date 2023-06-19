@@ -1,4 +1,16 @@
 .project-list__container {
+  padding-bottom: 4rem;
+  h2 {
+    font-size: $mob-fs-header-lg;
+
+    @include tablet() {
+      font-size: $dt-fs-header-lg;
+    }
+  }
+}
+
+.project-list__wrapper {
+  margin-top: 1.875rem;
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 2rem;

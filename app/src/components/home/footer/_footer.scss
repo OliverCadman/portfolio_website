@@ -25,15 +25,25 @@
 
     .contact-section__content {
       h2 {
-        font-size: $mob-fs-header-md;
+        font-size: $mob-fs-header-lg;
+        text-align: center;
 
         @include tablet() {
           font-size: $dt-fs-header-lg;
+        }
+
+        @include desktop() {
+          text-align: left;
         }
       }
 
       p {
         margin-top: 2.5rem;
+        text-align: center;
+
+        @include desktop() {
+          text-align: left;
+        }
       }
     }
 
@@ -50,6 +60,7 @@
       width: 100%;
       input,
       textarea {
+        font-size: $dt-fs-body-reg;
         width: 100%;
         background: transparent;
         outline: none;
@@ -62,12 +73,19 @@
           BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
           "Open Sans", "Helvetica Neue", sans-serif;
       }
-    }
 
-    input,
-    textarea {
-      @include desktop() {
-        font-size: $dt-fs-body-reg;
+      .error {
+        border-bottom: 1px solid $error;
+      }
+
+      .error-msg {
+        color: $error;
+        font-weight: 200;
+        text-align: right;
+      }
+
+      .success {
+        border-bottom: 1px solid $aqua;
       }
     }
   }

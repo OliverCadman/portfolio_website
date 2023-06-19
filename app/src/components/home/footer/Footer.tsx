@@ -2,20 +2,24 @@ import React, { BaseSyntheticEvent, useRef, useState } from "react";
 import Links from "../links/Links";
 import emailjs from "@emailjs/browser";
 import Error from "./Error";
+import Spinner from "./Spinner";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 type UserContactDetails = {
   name: {
-    isValid: boolean;
+    isValid: boolean | null;
     name: string;
     error_msg: string;
   };
   email: {
-    isValid: boolean;
+    isValid: boolean | null;
     email: string;
     error_msg: string;
   };
   message: {
-    isValid: boolean;
+    isValid: boolean | null;
     message: string;
     error_msg: string;
   };
@@ -25,21 +29,27 @@ const Footer = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState<UserContactDetails>({
     name: {
-      isValid: true,
+      isValid: null,
       name: "",
       error_msg: "",
     },
     email: {
-      isValid: true,
+      isValid: null,
       email: "",
       error_msg: "",
     },
     message: {
-      isValid: true,
+      isValid: null,
       message: "",
       error_msg: "",
     },
   });
+
+  const [sendingInProgress, setSendingInProgress] = useState<boolean>(false);
+
+  const notifySuccess = (msg: string) => toast(msg);
+
+  const notifyError = (msg: string) => toast(msg);
 
   const handleChange = (e: any) => {
     const val = e.target.value;
@@ -58,7 +68,7 @@ const Footer = () => {
       });
     } else if (input === "email") {
       setFormData((prevData) => {
-        const emailValid = val.indexOf("@") !== -1;
+        const emailValid = val && val.indexOf("@") !== -1;
         return {
           ...prevData,
           email: {
@@ -141,99 +151,157 @@ const Footer = () => {
       message: formData.message.message,
     };
 
+    setSendingInProgress(true);
+
     emailjs
       .send(serviceID, templateID, templateVars, publicKey)
       .then((result) => {
         console.log(result);
+        notifySuccess(
+          "Thanks for getting in touch! I will get back to you shortly."
+        );
+
+        setFormData({
+          name: {
+            isValid: null,
+            name: "",
+            error_msg: "",
+          },
+          email: {
+            isValid: null,
+            email: "",
+            error_msg: "",
+          },
+          message: {
+            isValid: null,
+            message: "",
+            error_msg: "",
+          },
+        });
+        setSendingInProgress(false);
       })
       .catch((error) => {
         console.log(error);
+        notifyError(
+          `Sorry, there was an error. Please try again: ${error.message}`
+        );
+
+        setSendingInProgress(false);
       });
   };
 
   return (
-    <div className="contact-section__container">
-      <div className="contact-section__wrapper">
-        <div className="contact-section__content">
-          <h2>Contact</h2>
-          <p>
-            I would love to hear about your project and how I could help. Please
-            fill in the form, and I'll get back to you as soon as possible.
-          </p>
+    <>
+      <div className="contact-section__container">
+        <div className="contact-section__wrapper">
+          <div className="contact-section__content">
+            <h2>Contact</h2>
+            <p>
+              I would love to hear about your project and how I could help.
+              Please fill in the form, and I'll get back to you as soon as
+              possible.
+            </p>
+          </div>
+          <div className="contact-section__form">
+            <form action="#" onSubmit={handleSubmit} ref={formRef}>
+              <div className="form-group">
+                <label htmlFor="name" className="sr-only">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="NAME"
+                  formNoValidate={true}
+                  value={formData?.name.name}
+                  onChange={handleChange}
+                  className={
+                    formData.name.isValid === false
+                      ? "error"
+                      : !formData.name.name
+                      ? ""
+                      : "success"
+                  }
+                />
+                {!formData?.name?.isValid ? (
+                  <Error message={formData.name.error_msg} />
+                ) : (
+                  ""
+                )}
+              </div>
+              <div className="form-group">
+                <label htmlFor="email" className="sr-only">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="EMAIL"
+                  formNoValidate={true}
+                  value={formData?.email.email}
+                  onChange={handleChange}
+                  className={
+                    formData.email.email && formData.email.isValid === false
+                      ? "error"
+                      : !formData.email.email
+                      ? ""
+                      : "success"
+                  }
+                />
+                {!formData?.email?.isValid ? (
+                  <Error message={formData.email.error_msg} />
+                ) : (
+                  ""
+                )}
+              </div>
+              <div className="form-group">
+                <label htmlFor="message" className="sr-only">
+                  Message
+                </label>
+                <textarea
+                  name="message"
+                  id="message"
+                  rows={6}
+                  placeholder="MESSAGE"
+                  value={formData?.message.message}
+                  onChange={handleChange}
+                  className={
+                    formData.message.isValid === false
+                      ? "error"
+                      : !formData.message.message
+                      ? ""
+                      : "success"
+                  }
+                ></textarea>
+                {!formData?.message?.isValid ? (
+                  <Error message={formData.message.error_msg} />
+                ) : (
+                  ""
+                )}
+              </div>
+              <div className="form-submit">
+                {sendingInProgress ? (
+                  <Spinner />
+                ) : (
+                  <button
+                    type="submit"
+                    className="submit-btn offset-colored-underline"
+                    formNoValidate={true}
+                  >
+                    Send Message
+                  </button>
+                )}
+              </div>
+            </form>
+          </div>
         </div>
-        <div className="contact-section__form">
-          <form action="#" onSubmit={handleSubmit} ref={formRef}>
-            <div className="form-group">
-              <label htmlFor="name" className="sr-only">
-                Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                placeholder="NAME"
-                formNoValidate={true}
-                value={formData?.name.name}
-                onChange={handleChange}
-              />
-              {!formData?.name?.isValid ? (
-                <Error message={formData.name.error_msg} />
-              ) : (
-                ""
-              )}
-            </div>
-            <div className="form-group">
-              <label htmlFor="email" className="sr-only">
-                Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="EMAIL"
-                formNoValidate={true}
-                value={formData?.email.email}
-                onChange={handleChange}
-              />
-              {!formData?.email?.isValid ? (
-                <Error message={formData.email.error_msg} />
-              ) : (
-                ""
-              )}
-            </div>
-            <div className="form-group">
-              <label htmlFor="message" className="sr-only">
-                Message
-              </label>
-              <textarea
-                name="message"
-                id="message"
-                rows={6}
-                placeholder="MESSAGE"
-                value={formData?.message.message}
-                onChange={handleChange}
-              ></textarea>
-              {!formData?.message?.isValid ? (
-                <Error message={formData.message.error_msg} />
-              ) : (
-                ""
-              )}
-            </div>
-            <div className="form-submit">
-              <button
-                type="submit"
-                className="submit-btn offset-colored-underline"
-                formNoValidate={true}
-              >
-                Send Message
-              </button>
-            </div>
-          </form>
-        </div>
+        <hr />
+        <Links classOne="footer-links" classTwo="footer--positioned" />
       </div>
-      <hr />
-      <Links classOne="footer-links" classTwo="footer--positioned" />
-    </div>
+      <ToastContainer />
+    </>
   );
 };
 
