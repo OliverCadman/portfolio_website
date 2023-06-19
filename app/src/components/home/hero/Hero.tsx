@@ -3,6 +3,7 @@ import heroAvatarTablet from "../../../assets/images/image-profile-tablet.webp";
 import heroAvatarMobile from "../../../assets/images/image-profile-mobile.webp";
 import { ReactComponent as PatternRings } from "../../../assets/images/pattern-rings.svg";
 import { ReactComponent as PatternCircle } from "../../../assets/images/pattern-circle.svg";
+import ContactBtn from "../contact_btn/ContactBtn";
 
 const Hero = () => {
   return (
@@ -32,9 +33,7 @@ const Hero = () => {
                 building accessible web apps and data transformation pipelines.
               </p>
               <div className="hero__contact">
-                <a href="#" className="offset-colored-underline">
-                  Contact Me
-                </a>
+                <ContactBtn />
               </div>
             </article>
           </div>

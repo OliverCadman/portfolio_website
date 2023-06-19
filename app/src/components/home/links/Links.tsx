@@ -14,13 +14,19 @@ const Links: React.FC<{ classOne: string; classTwo: string }> = ({
           <h1>olivercadman</h1>
         </li>
         <li className="link__list-icon">
-          <GithubIcon />
+          <a href="#">
+            <GithubIcon />
+          </a>
         </li>
         <li className="link__list-icon">
-          <LinkedInIcon />
+          <a href="#">
+            <LinkedInIcon />
+          </a>
         </li>
         <li className="link__list-icon">
-          <TwitterIcon />
+          <a href="#">
+            <TwitterIcon />
+          </a>
         </li>
       </ul>
     </div>

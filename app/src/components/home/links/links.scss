@@ -1,3 +1,15 @@
+.link__list li:first-child {
+  flex-basis: 100%;
+  text-align: center;
+  user-select: none;
+
+  @include tablet() {
+    flex-basis: auto;
+    text-align: left;
+    margin-right: auto;
+  }
+}
+
 .header {
   .link__list {
     display: flex;
@@ -5,17 +17,6 @@
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-  }
-
-  .link__list li:first-child {
-    flex-basis: 100%;
-    text-align: center;
-
-    @include tablet() {
-      flex-basis: auto;
-      text-align: left;
-      margin-right: auto;
-    }
   }
 
   .link__list-icon {
@@ -71,5 +72,21 @@
 .footer-links {
   .link__list {
     margin-top: 1.5rem;
+  }
+}
+
+svg path {
+  transition: fill 0.2s ease;
+}
+
+.link__list-icon {
+  a {
+    @include desktop() {
+      &:hover {
+        svg path {
+          fill: $aqua;
+        }
+      }
+    }
   }
 }

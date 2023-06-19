@@ -1,11 +1,15 @@
 import React from "react";
 import Project from "./Project";
 import projects from "./projects";
+import ContactBtn from "../contact_btn/ContactBtn";
 
 const ProjectList = () => {
   return (
     <section className="section project-list__container">
-      <h2>Projects</h2>
+      <div className="project-list__header">
+        <h2>Projects</h2>
+        <ContactBtn />
+      </div>
       <div className="project-list__wrapper">
         {projects.map((project, index) => {
           const { title, thumbnail_lg, thumbnail_sm, technologies } = project;

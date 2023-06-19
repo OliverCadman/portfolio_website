@@ -47,6 +47,7 @@ const SkillsList = () => {
             );
           })}
         </ul>
+        <hr className="hr-mob-only" />
       </div>
     </section>
   );

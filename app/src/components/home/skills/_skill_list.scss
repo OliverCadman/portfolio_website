@@ -50,13 +50,13 @@
   position: absolute;
   right: 0;
   bottom: 0;
-  transform: translate(75%, 85%);
+  transform: translate(75%, 50%);
 
   @include tablet() {
-    transform: translate(50%, 85%);
+    transform: translate(50%, 50%);
   }
 
   @include desktop() {
-    transform: translate(45%, 50%);
+    transform: translate(45%, 30%);
   }
 }

@@ -67,6 +67,12 @@ hr {
   margin-top: 4rem;
 }
 
+.hr-mob-only {
+  @include tablet() {
+    display: none;
+  }
+}
+
 .section,
 .footer {
   position: relative;
@@ -102,3 +108,4 @@ hr {
 @import "./components/home/projects/project_list";
 @import "./components/home/footer/footer";
 @import "./components/home/footer/spinner";
+@import "./components/home/contact_btn/contact_btn";
